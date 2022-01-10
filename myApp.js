@@ -1,6 +1,12 @@
 var express = require("express");
 var app = express();
 
-console.log("Hello World");
+const port = 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello Express");
+});
+
+app.listen(port);
 
 module.exports = app;
