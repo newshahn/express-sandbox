@@ -7,6 +7,8 @@ const port = 3000;
 //   res.send("Hello Express");
 // });
 
+app.use(express.static(__dirname));
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
