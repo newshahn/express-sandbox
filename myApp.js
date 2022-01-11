@@ -10,6 +10,11 @@ const port = 3000;
 
 app.use(express.static(__dirname));
 
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
