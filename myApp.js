@@ -1,3 +1,4 @@
+var dotenv = require("dotenv").config();
 var express = require("express");
 var app = express();
 
@@ -14,7 +15,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/json", (req, res) => {
-  res.json({ message: "Hello" });
+  res.json(
+    process.env.MESSAGE_STYLE === "uppercase"
+      ? { message: "Hello JSON" }
+      : { message: "Hello json" }
+  );
 });
 
 app.listen(port);
